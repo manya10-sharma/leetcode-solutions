@@ -1,0 +1,25 @@
+class Solution {
+
+    public boolean checkPerfectNumber(int num) {
+        int sum = 0;
+        for(int i = 1 ; i<num ; i++){
+            if(num%i==0){
+                sum+=i;
+            }
+        }
+        if(sum!=num){
+            return false;
+        }
+      return true;
+    }
+    
+    public static void main(String args[]){
+        Scanner sc =  new Scanner(System.in);
+        Solution sol = new Solution();
+        int n =  sc.nextInt();
+        boolean ans = sol.checkPerfectNumber(n);
+        System.out.println(ans);
+        
+    }
+
+}
