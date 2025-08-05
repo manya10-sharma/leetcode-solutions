@@ -1,0 +1,20 @@
+import java.util.*;
+class Solution {
+    public int hIndex(int[] citations) {
+        Arrays.sort(citations);
+        int n = citations.length;
+        int left = 0;
+        int right = n;
+
+        while(left < right){
+            int mid = (left + right)/2;
+            if(citations[mid] >= n-mid){
+                right = mid;
+            }
+            else{
+                left = mid + 1;
+            }
+        }
+        return n-left;
+    }
+}
