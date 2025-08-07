@@ -1,0 +1,22 @@
+class Solution {
+    public boolean wordPattern(String pattern, String s) {
+        String[] words = s.split(" ");
+        if (words.length != pattern.length()) return false;
+
+        List<Character> patternList = new ArrayList<>();
+        List<String> wordList = new ArrayList<>();
+
+        for (int i = 0; i < pattern.length(); i++) {
+            patternList.add(pattern.charAt(i));
+            wordList.add(words[i]);
+        }
+
+        for (int i = 0; i < pattern.length(); i++) {
+            if (patternList.indexOf(patternList.get(i)) != wordList.indexOf(wordList.get(i))) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
