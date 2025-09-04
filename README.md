@@ -6,6 +6,7 @@ This repository contains my daily solved LeetCode problems in Java.
 - Arrays
 - Strings
 - Sorting
+- Searching
 - Recursion
 - Math
 - Linked-list
