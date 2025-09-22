@@ -1,0 +1,29 @@
+class Solution {
+    public int maxFrequencyElements(int[] nums) {
+        Arrays.sort(nums);
+        int maxFreq = 1, total = 0, currFreq = 1;
+        
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] == nums[i - 1]) {
+                currFreq++;
+            } else {
+                if (currFreq > maxFreq) {
+                    maxFreq = currFreq;
+                    total = currFreq;
+                } else if (currFreq == maxFreq) {
+                    total += currFreq;
+                }
+                currFreq = 1;
+            }
+        }
+        
+        if (currFreq > maxFreq) {
+            total = currFreq;
+        } else if (currFreq == maxFreq) {
+            total += currFreq;
+        }
+        
+        return total;
+
+    }
+}
