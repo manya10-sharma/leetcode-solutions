@@ -1,0 +1,22 @@
+int n = nums.size();
+        if (2 * k > n) return false; 
+        if (k == 1) return n >= 2;
+
+        int streak = 1;
+        Set<Integer> starts = new HashSet<>();
+
+        for (int i = 1; i < n; i++) {
+            if (nums.get(i) > nums.get(i - 1)) {
+                streak++;
+            } else {
+                streak = 1;
+            }
+
+            if (streak >= k) {
+                int start = i - k + 1;
+                if (starts.contains(start - k)) return true;
+                starts.add(start);
+            }
+        }
+
+        return false;
